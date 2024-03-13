@@ -1,0 +1,34 @@
+# api for this domain
+service: whatsapp-api
+frameworkVersion: '3'
+
+# cloud provider
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-south-1
+
+functions:
+  # function name
+  whatsappHelloFn:
+    # where is code?
+    handler: hello.handler
+    events:
+      # invoke
+      - httpApi:
+          path: /hello
+          method: get
+  whatsappHiFn:
+    # where is code?
+    handler: hi.handler
+    events:
+      # invoke
+      - httpApi:
+          path: /hi
+          method: get
+
+# deployed result links
+  # whatsapp-api-dev-whatsappHelloFn
+  # whatsapp-api-dev-whatsappHiFn
+
+# Function, Triggers for a Function
